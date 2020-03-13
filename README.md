@@ -1,2 +1,3 @@
 # react-auth
-react login, forget, reset password
+- login
+- forget and reset password
