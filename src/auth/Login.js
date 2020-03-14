@@ -5,6 +5,9 @@ import Loader from '../components/loader/Loader'
 
 import axios from 'axios'
 import { url } from '../utils/config'
+import jwt_decode from 'jwt-decode'
+import setAuthToken from '../utils/Set-Auth-Token'
+import { useAuth } from '../context/Auth'
 
 
 function Login () {
@@ -12,6 +15,8 @@ function Login () {
     const [ password, setPassword ] = useState('')
     const [ loading, setLoading ] = useState(false)
     const [ error, setError ] = useState(null)
+
+    const { setUser } = useAuth()
 
     const handleSubmit = e => {
         e.preventDefault();
@@ -25,6 +30,22 @@ function Login () {
                     setLoading(false)
                     const { data: { data } } = res
                     console.log(data)
+
+                    // get token and save to local storage
+                    localStorage.setItem('_token', data.token)
+
+                    // set token to auth Header to be sent along every request
+                    setAuthToken(data.token)
+
+                    // decode token and set current user
+                    const { exp, user_id, phone_verified, email_verified } = jwt_decode(data.token)
+
+                    // set user
+                    setUser({ exp, user_id, phone_verified, email_verified })
+
+                    // direct to dashboard
+                    window.location.href='/dashboard'
+
                 }
             })
             .catch(err=> {
