@@ -4,7 +4,7 @@ import './preloader.css'
 function Preloader () {
     return (
         <div className='preloader'>
-            <b>Loading...</b>
+            <div className="lds-facebook"><div></div><div></div><div></div></div>
         </div>
     )
 }

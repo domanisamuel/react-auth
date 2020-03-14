@@ -1,6 +1,6 @@
 import React from 'react'
 import './Home.css'
-import Login from '../../components/login/Login'
+import Login from '../../auth/Login'
 
 function Home () {
     return (
