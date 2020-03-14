@@ -1,0 +1,19 @@
+.login {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -10%;
+    margin-left: -10%;
+    font-family: 'Lato', sans-serif;
+    padding: 2%;
+    min-width: 300px;
+}
+
+.login input {
+    padding: 8px 15px;
+    width: 80%;
+    margin-bottom: 20px;
+    font-size: 16px;
+    border: none;
+    border-bottom: 1px #cccccc solid;
+}
