@@ -1,1 +1,1 @@
-export const url = 'https://apigw.tospay.net/api/v1'
+export const url = ''
