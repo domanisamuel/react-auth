@@ -1,1 +1,1 @@
-export const url = ''
+export const url = '<YOUR_BASE_URL>'
